@@ -1,0 +1,221 @@
+
+/*#region Global Rules */
+
+:root {
+    --primary-color: #26374B;
+    --secondary-color: #2DB2AD;
+    --primary-text-color: white;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+/*#endregion  */
+
+/*#region Main PageLayout  */
+
+.container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    color: var(--primary-text-color);
+}
+
+
+
+
+/*#region SideBar */
+a {
+    text-decoration:none;
+    color:white;
+}
+
+.sideNavBar {
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    height: 100vh;
+    font-size: 1.6rem;
+}
+
+
+.profile {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+}
+
+.imageIcon {
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    overflow: hidden;
+    border: 1px solid var(--primary-text-color);
+    margin-right: 20px;
+    box-shadow: 1px 2px 20px var(--secondary-color);
+    animation-name:ImageAnimation;
+    animation-duration:3s;
+    animation-delay:0.4s;
+    animation-fill-mode:forwards;
+    animation-timing-function:ease-in-out;
+
+}
+
+@keyframes ImageAnimation {
+    from {
+        transform:rotate(360deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+    .imageIcon img {
+        width: 100%;
+    }
+
+.name:first-child {
+    color: white;
+}
+
+.name {
+    font-family: 'Abril Fatface', cursive;
+    font-family: 'Satisfy', cursive;
+    font-family: 'Staatliches', cursive;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+.nickName {
+    color: darkgray;
+}
+
+.navList {
+    list-style: none;
+    margin: 0;
+    padding: 10px;
+    padding-left: 40px;
+    padding-right: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.6rem;
+    justify-content: center;
+    align-content: center;
+    font-family: 'Abril Fatface', cursive;
+    font-family: 'Satisfy', cursive;
+    font-family: 'Staatliches', cursive;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+    .navList li {
+        opacity:0.5;
+        transition:0.7s;
+        cursor:pointer;
+    }
+
+    .navList li:hover {
+        opacity:1.5;
+    }
+
+.navLink {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    margin-bottom: 20px;
+    gap: 30%;
+}
+
+    .navLink i {
+        color: var(--secondary-color);
+        font-size: 1.6rem;
+    }
+
+    .navLink::after {
+        content: "";
+        background-color: rgba(255, 255, 255, 0.1);
+        position: absolute;
+        height: 1px;
+        width: 100%;
+        top: 100%;
+        margin: 10px 0;
+        transition:0.7s;
+    }
+    .navLink:hover::after {
+        background-color: var(--secondary-color);
+    }
+
+        .profileSpanWord {
+            margin-left: 5px;
+        }
+
+/*#endregion */
+
+
+
+.projectTitle {
+    color: var(--secondary-color);
+    font-family: 'Abril Fatface', cursive;
+    font-family: 'Satisfy', cursive;
+    font-family: 'Staatliches', cursive;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    text-align:center;
+}
+
+.projectTitleSplash {
+    color: white;
+    font-family: 'Abril Fatface', cursive;
+    font-family: 'Satisfy', cursive;
+    font-family: 'Staatliches', cursive;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    text-align: center;
+    position:relative;
+    
+}
+
+    .projectTitleSplash::after {
+        position:absolute;
+        content:"";
+        background-color:var(--secondary-color);
+        box-shadow:1px 2px 10px var(--secondary-color);
+        width:50%;
+        top:100%;
+        left:25%;
+        height:2px;
+    }
+
+    .projectTitle::first-letter {
+        color: white;
+        background-color: var(--primary-color);
+        padding: 5px;
+        box-shadow: 1px 1px 5px var(--secondary-color) inset;
+       
+    }
+
+/*#region Page Body */
+.bodyContent {
+    background-color: #eee;
+    width: 100%;
+   /* display: flex;
+    justify-content: center;
+    align-content: center;*/
+}
+
+/*#endregion  */
+
+/*#endregion  */
+

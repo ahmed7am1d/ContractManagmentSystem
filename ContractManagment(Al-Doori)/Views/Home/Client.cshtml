@@ -1,0 +1,95 @@
+﻿@model ClientViewModel
+@section Styles {
+    <link rel="stylesheet" href="~/css/indexPage.css" />
+}
+
+
+<div class="IndexPageWrapper">
+
+<div class="text-center">
+    <div class="filteringGroups">
+    <!--Search Form-->
+        <form class="searchForm" method="post" asp-action="SearchAction">
+             <input type="search" class="searchBar" placeholder="Enter Client Name.." asp-for="@Model.ClientSearchName"/>
+             <input type="submit" class="submitButton" value="Search" />
+            <div class="errorDiv">
+              <span class="ErrorSearchServerSide" asp-validation-for="@Model.ClientSearchName"></span>
+             </div>
+        </form>
+
+    <!--Filter Form-->
+        <form class="searchForm" method="post" asp-action="FilterAction">
+             
+             <select class="filterSelectBox" asp-for=@Model.filterByChoice>
+                 <optgroup label="Filter By">
+                    
+                     <option>Name</option>
+                     <option>SurName</option>
+                     <option>Age</option>
+                 </optgroup>
+             </select>
+             <input type="submit" class="submitButton" value="Filter" />
+            <div class="errorDiv">
+               <!--If wanted provide validation for select box -->
+             </div>
+        </form>
+
+         <!--Export Data Form-->
+        <form class="searchForm" method="post" asp-action="ExportClientsToExcel">
+             <input type="submit" class="submitButton" value="Export Clients To CSV or .xlsx sheet" />
+            <div class="errorDiv">
+               <!--If wanted provide validation for select box -->
+             </div>
+        </form>
+    </div>
+    <!--Each Contract will have it is own table and Own Details of Advisors and Adminstrators-->
+  
+
+        
+            <div class="tableDetailsWrapper"> 
+             <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>SurName</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>NIN</th>
+            <th>Age</th>
+          </tr>
+        </thead>
+
+        <tbody>
+              @{
+          for(int i =0;i < Model._clients.Count; i++)
+        {
+          <tr>
+            <th>@Model._clients[i].Name</th>
+
+            <th>
+              @Model._clients[i].SurName
+            </th>
+
+            <th>@Model._clients[i].Email</th>
+
+            <th>
+             @Model._clients[i].PhoneNumber
+            </th>
+
+            <th class="testCaseStepsCell">
+             @Model._clients[i].NationalIdentificationNumber
+            </th>
+
+            <th>
+              @Model._clients[i].Age
+            </th>
+
+          </tr>
+          }
+          }
+        </tbody>
+      </table>
+            </div>
+ 
+</div>
+</div>

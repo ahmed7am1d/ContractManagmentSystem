@@ -1,0 +1,148 @@
+﻿.LoginFormWrapper {
+    display: grid;
+    grid-template-columns: 50% auto;
+    background-color: var(--secondary-color);
+    border-radius: 50px;
+    box-shadow: 10px 15px 40px var(--secondary-color);
+    margin: 0 200px;
+}
+
+.leftSide {
+    width: 100%;
+    padding: 50px;
+}
+
+    .leftSide img {
+        height: 70vh;
+        width: 100%;
+    }
+
+
+.rightSide {
+    background-color: white;
+    padding: 30px;
+    font-family: 'Abril Fatface', cursive;
+    font-family: 'Satisfy', cursive;
+    font-family: 'Staatliches', cursive;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+    .rightSide h1 {
+        text-align: center;
+        color: var(--secondary-color);
+        letter-spacing: 5px;
+        font-size: 2rem;
+    }
+
+    .rightSide p {
+        text-align: center;
+        color: darkgray;
+        font-size: 1.5rem;
+        position: relative;
+    }
+
+        .rightSide p::after {
+            position: absolute;
+            content: "";
+            height: 1px;
+            width: 80%;
+            top: 100%;
+            left: 10%;
+            margin-top: 10px;
+            background-color: var(--secondary-color);
+        }
+
+form {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    margin-top: 40%;
+}
+
+.InputGroup {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+    .InputGroup input[type="text"],
+    .InputGroup input[type="password"] {
+        padding: 10px;
+        background-color: #eee;
+        border: none;
+        border-radius: 5px;
+    }
+
+    .InputGroup span {
+        padding: 10px;
+        font-size: 1.2rem;
+        color:black;
+    }
+
+    .InputGroup input[type="submit"] {
+        padding: 10px 30px;
+        border: none;
+        color: white;
+        background-color: var(--primary-color);
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+        font-family: sans-serif;
+    }
+
+        .InputGroup input[type="submit"]:hover {
+            position: absolute;
+            transform: scale(1.1);
+            box-shadow: 1px 2px 10px var(--secondary-color) inset;
+        }
+
+    .InputGroup input:focus {
+        border-bottom: 2px solid var(--secondary-color);
+        outline: none;
+    }
+
+/*#endregion  */
+
+/*#region Responssive Design  */
+@media (max-width:1280px) {
+
+    .LoginFormWrapper {
+        display: flex;
+        flex-direction: column;
+        background-color: var(--secondary-color);
+        border-radius: 50px;
+        overflow: hidden;
+        box-shadow: 10px 15px 40px var(--secondary-color);
+    }
+
+
+
+    .leftSide {
+        height: 300px;
+    }
+
+        .leftSide img {
+            height: fit-content;
+            width: 70%;
+        }
+}
+
+@media (max-width:1280px) and (min-width:304px) {
+
+    form {
+        margin-top: 15%;
+    }
+}
+/*#endregion  */
+
+
+.ErrorSearchServerSide {
+    color: red !important;
+    font-weight: bold;
+    font-size:1rem !important;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif !important;
+
+}

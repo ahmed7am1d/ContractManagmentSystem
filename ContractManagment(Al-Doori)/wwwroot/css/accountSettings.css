@@ -1,0 +1,110 @@
+﻿.userAccountLogo {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+
+.logoWrapper {
+    max-width: 200px;
+    max-height: 200px;
+    width: auto;
+    height: auto;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 1px 10px 20px var(--secondary-color), -1px -10px 20px var(--secondary-color);
+    border: 1px solid darkgray;
+    animation-name: ImageAnimation;
+    animation-duration: 2s;
+    animation-delay: 0.4s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+}
+
+.logoWrapper img {
+    width:100%;
+    height:100%;
+}
+
+.InputGroupContainer {
+    box-sizing:border-box;
+    padding:0 10vw;
+    margin-top:100px;
+}
+
+
+.InputGroup {
+   display:flex;
+   justify-content:space-between
+}
+
+    .InputGroup span {
+        padding: 15px;
+        color: var(--primary-color);
+        font-size: 1.3rem;
+        font-family: 'Abril Fatface', cursive;
+        font-family: 'Satisfy', cursive;
+        font-family: 'Staatliches', cursive;
+        font-family: 'Yanone Kaffeesatz', sans-serif;
+    }
+    .InputGroup input {
+        padding: 15px;
+        border: none;
+        border-bottom: 2px solid var(--secondary-color);
+        border-radius: 5px;
+        outline: none;
+        caret-color: var(--secondary-color);
+        width:400px
+    }
+
+
+.submitButtonContainer {
+    display:flex;
+    justify-content:center;
+    align-content:center;
+    align-items:center;
+    margin-top:80px;
+}
+
+    .submitButtonContainer input {
+        padding: 20px;
+        background-color:var(--primary-color);
+        color:white;
+        border-radius:10px;
+        font-size: 1.3rem;
+        font-family: 'Abril Fatface', cursive;
+        font-family: 'Satisfy', cursive;
+        font-family: 'Staatliches', cursive;
+        font-family: 'Yanone Kaffeesatz', sans-serif;
+        cursor:pointer;
+        transition:0.5s;
+
+    }
+        .submitButtonContainer input:hover {
+            opacity:0.7;
+        }
+
+
+
+
+
+
+
+        .grid-3 {
+            display: grid;
+            /* auto-fill => it will fill the columns with the available space, min is 300px and max 1fr */
+            /* if we have 1000px it will be divided to the 3 elements also 900 but if 800 two take 300px and one go down  */
+            grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+            grid-gap: 20px;
+        }
+
+.errorValidationSettings {
+    font-family: 'Abril Fatface', cursive;
+    font-family: 'Satisfy', cursive;
+    font-family: 'Staatliches', cursive;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    color: red;
+    font-weight:500;
+    font-size:1.1rem;
+    margin-left: 20px;
+}

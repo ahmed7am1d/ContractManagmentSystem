@@ -1,0 +1,23 @@
+﻿/*#region Splash Screen Styling */
+.splashScreen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--primary-color);
+    z-index: 1000;
+}
+
+.animationContainer {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%,-50%);
+}
+
+#anim {
+    max-width: 800px;
+}
+
+/*#endregion*/

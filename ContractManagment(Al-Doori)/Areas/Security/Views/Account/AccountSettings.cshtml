@@ -1,0 +1,79 @@
+﻿@model SettingsViewModel
+@section Styles {
+    <link rel="stylesheet" href="~/css/accountSettings.css" />
+}
+<div class="userAccountLogo">
+    <div class="logoWrapper">
+         <img
+         src="~/Images/man.png"
+          />
+    </div>
+</div>
+
+<div class="InputGroupContainer">
+    <form method="post" asp-action="SaveNewSettings">
+        <div class="accountSettingsForm">
+            <div class="grid-3">
+          <!--First Name-->
+      <div>
+          <div class="InputGroup">
+            <span>First Name: </span>
+            <input type="text" placeholder="Enter First Name.." asp-for=@Model.FirstName />
+          </div>
+          <div>
+            <span asp-validation-for=@Model.FirstName  class="errorValidationSettings"></span>
+            </div>
+          </div>
+
+          <!--LastName-->
+          <div>
+          <div class="InputGroup">
+            <span>Last Name: </span>
+            <input type="text" placeholder="Enter Last Name.." asp-for="@Model.LastName" />
+          </div>
+          <div>
+            <span asp-validation-for=@Model.LastName class="errorValidationSettings"></span>
+            </div>
+          </div>
+          <!--Phone Number-->
+          <div>
+          <div class="InputGroup">
+            <span>Phone Number: </span>
+            <input type="text" placeholder="Enter Phone Number.." asp-for="@Model.PhoneNumber"/>
+          </div>
+          <div>
+            <span class="errorValidationSettings"></span>
+            </div>
+          </div>
+           <!--User Name-->
+           <div>
+            <div class="InputGroup">
+                <span>User Name: </span>
+                <input type="text" placeholder="Enter User Name..."  asp-for="@Model.UserName"/>
+             </div>
+             <div>
+            <span asp-validation-for=@Model.UserName class="errorValidationSettings"></span>
+            </div>
+          </div>
+
+          <!--Email-->
+          <div>
+                <div class="InputGroup">
+                    <span>Email: </span>
+                    <input type="email" placeholder="Enter Correct Email.." asp-for="@Model.Email" />
+                </div>
+                <div>
+                    <span asp-validation-for=@Model.Email class="errorValidationSettings"></span>
+                </div>
+
+                </div>
+          
+          </div>
+                             <div class="submitButtonContainer">
+          <input type="submit" value="SAVE SETTINGS" onclick="return confirm('Are you sure to save new settings ?')"/>
+          </div>
+      
+         
+    </form>
+ 
+</div>

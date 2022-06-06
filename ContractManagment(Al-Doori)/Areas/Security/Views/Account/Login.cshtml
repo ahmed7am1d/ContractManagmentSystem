@@ -1,0 +1,39 @@
+﻿@using ContractManagment_Al_Doori_.Models.ViewModel
+@model LoginViewModel
+@section Styles {
+    <link rel="stylesheet" href="~/css/loginPage.css"/>
+}
+<div class="LoginFormWrapper">
+      <div class="leftSide">
+        <img src="~/Images/undraw_agreement_re_d4dv.svg" />
+      </div>
+      <div class="rightSide">
+        <h1>Sign In</h1>
+        <p>Contract Managment System</p>
+
+        <form asp-action="Login" method="post">
+
+
+          <div class="InputGroup">
+            <span>User Name: </span>
+            <input type="text" placeholder="Enter Admin UserName.."  asp-for="@Model.Username"/>
+          </div>
+
+          <div class="InputGroup">
+            <span>Passwords: </span>
+            <input type="password" placeholder="Enter Admin Password.." asp-for="@Model.Password"/>
+          </div>
+
+          <div class="InputGroup">
+            <input type="Submit" value="LOGIN" />
+          </div>
+
+
+        </form>
+
+
+      </div>
+    </div>
+
+
+

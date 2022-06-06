@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32228.430
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContractManagment(Al-Doori)", "ContractManagment(Al-Doori)\ContractManagment(Al-Doori).csproj", "{080FF088-6D42-4AB8-9DE9-468BEDD5A008}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{080FF088-6D42-4AB8-9DE9-468BEDD5A008}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{080FF088-6D42-4AB8-9DE9-468BEDD5A008}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{080FF088-6D42-4AB8-9DE9-468BEDD5A008}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{080FF088-6D42-4AB8-9DE9-468BEDD5A008}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BE02372F-1B79-493E-BC06-E5C81BEE650A}
+	EndGlobalSection
+EndGlobal
