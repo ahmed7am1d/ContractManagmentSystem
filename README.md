@@ -51,17 +51,17 @@ The system will allow you to do the following:
  Setup Instructions
  ------------
  (Prefered IDE: Visual Studio Community)<br>
- 1- Download the GitRepo as Zip or Pull it to your local repo<br>
- 2- Open the .NET Solution file (example.sln)<br>
- 3- in appSettings.json, add your own connection string to your database<br>
- 4- in case you are using [Visual Studio Community] open Package Manager console and add first Migration: <br> 
+ <strong>1-</strong> Download the GitRepo as Zip or Pull it to your local repo<br>
+ <strong>2-</strong> Open the .NET Solution file (example.sln)<br>
+ <strong>3-</strong> in appSettings.json, add your own connection string to your database<br>
+ <strong>4-</strong> in case you are using [Visual Studio Community] open Package Manager console and add first Migration: <br> 
  `Add-Migration "0.0.1-FirstAppMigration"`<br>
- 5- in case your are using VS Code or another IDE you can use Terminal or CMD inside the solution path and add:<br>
+ <strong>5-</strong> in case your are using VS Code or another IDE you can use Terminal or CMD inside the solution path and add:<br>
 `dotnet ef migrations add InitialCreate`<br>
- 6- in case you are using [Visual Studio Community] open Package Manager console again and update database using following code : <br> 
+ <strong>6-</strong> in case you are using [Visual Studio Community] open Package Manager console again and update database using following code : <br> 
  `Update-Database`<br>
- 7- in case your are using VS Code or another IDE again you can use Terminal or CMD inside the solution path and add:<br>
+ <strong>7-</strong> in case your are using VS Code or another IDE again you can use Terminal or CMD inside the solution path and add:<br>
 `dotnet ef database update`<br>
- 8- To Login as Admin use the (Username: admin, Password: admin)<br>
- 8- Here you go run the application and happy coding :)<br>
+ <strong>8-</strong> To Login as Admin use the (Username: admin, Password: admin)<br>
+ <strong>9-</strong> Here you go run the application and happy coding :)<br>
 
