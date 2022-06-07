@@ -25,5 +25,6 @@ The system will allow you to do the following:
  - Search for clients by client name. Filtering clients by [Age, Name, Surname] 
  - Search for advisors by advisor name. Filtering clients by [Age, Name, Surname] 
  - [Future feature] Admin can (add, delete, create) (Contracts, Advisors, Clients)
+ - Export (Contracts, Advisors, Clients) as Excel Sheet or CSV
  
  
