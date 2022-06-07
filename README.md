@@ -1,3 +1,4 @@
+![GitHub all releases](https://img.shields.io/github/downloads/ahmed7am1d/ContractManagmentSystem/total?logo=GitHub&style=flat-square)
 Introduction
 ------
 Welcome to Contract Mangment System application, it is a full stack ASP.NET Core MVC (.NET6) application
@@ -27,4 +28,14 @@ The system will allow you to do the following:
  - [Future feature] Admin can (add, delete, create) (Contracts, Advisors, Clients)
  - Export (Contracts, Advisors, Clients) as Excel Sheet or CSV
  
+ App Internal Features
+ --------
+ - ASP.NET Core Identitfication and authentication
+ - Cookies managment
+ - different roles 
+ - seprated bussiness logic 
+ - Responsive Design (Mobile Friendly Desing) 
+ - Splash Screen 
+ - Server Side Validation 
+ - [Future feature]- Client Side Validation using JavaScript
  
