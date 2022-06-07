@@ -48,7 +48,7 @@ The system will allow you to do the following:
  - .net tools for using terminal and ef
  - when using .NET CLI or CMD for commands follow (https://docs.microsoft.com/en-us/ef/core/cli/dotnet)
  
- Setup Instructions
+ Setup Instructions:
  ------------
  (Prefered IDE: Visual Studio Community)<br>
  <strong>1-</strong> Download the GitRepo as Zip or Pull it to your local repo<br>
@@ -65,3 +65,21 @@ The system will allow you to do the following:
  <strong>8-</strong> To Login as Admin use the (Username: admin, Password: admin)<br>
  <strong>9-</strong> Here you go run the application and happy coding :)<br>
 
+Internal App ScreenShots:
+-----------
+ **- Home Page:**
+<img src="Images/0.png"></img>
+ **- Login Page:**
+<img src="Images/1.PNG"></img>
+ **- SignUp Page:**
+<img src="Images/2.PNG"></img>
+ **- Cart Items:**
+<img src="Images/3.PNG"></img>
+ **- Products Admin Managments:**
+<img src="Images/4.PNG"></img>
+ **- Modifying Products Page:**
+<img src="Images/5.PNG"></img>
+ **- Creating New Product Page:**
+<img src="Images/6.PNG"></img>
+ **- Mobile View [Responsive Design]:**
+<img src="Images/7.png"></img>
