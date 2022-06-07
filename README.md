@@ -50,18 +50,18 @@ The system will allow you to do the following:
  
  Setup Instructions
  ------------
- (Prefered IDE: Visual Studio Community)
- 1- Download the GitRepo as Zip or Pull it to your local repo 
- 2- Open the .NET Solution file (example.sln)
- 3- in appSettings.json, add your own connection string to your database 
+ (Prefered IDE: Visual Studio Community)<br>
+ 1- Download the GitRepo as Zip or Pull it to your local repo<br>
+ 2- Open the .NET Solution file (example.sln)<br>
+ 3- in appSettings.json, add your own connection string to your database<br>
  4- in case you are using [Visual Studio Community] open Package Manager console and add first Migration: <br> 
- `Add-Migration "0.0.1-FirstAppMigration"`
+ `Add-Migration "0.0.1-FirstAppMigration"`<br>
  5- in case your are using VS Code or another IDE you can use Terminal or CMD inside the solution path and add:<br>
-`dotnet ef migrations add InitialCreate`
+`dotnet ef migrations add InitialCreate`<br>
  6- in case you are using [Visual Studio Community] open Package Manager console again and update database using following code : <br> 
- `Update-Database`
+ `Update-Database`<br>
  7- in case your are using VS Code or another IDE again you can use Terminal or CMD inside the solution path and add:<br>
-`dotnet ef database update`
- 8- To Login as Admin use the (Username: admin, Password: admin)
- 8- Here you go run the application and happy coding :) 
+`dotnet ef database update`<br>
+ 8- To Login as Admin use the (Username: admin, Password: admin)<br>
+ 8- Here you go run the application and happy coding :)<br>
 
