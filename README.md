@@ -79,9 +79,9 @@ Internal App ScreenShots:
 <img src="AppScreenShots/ClientPage.PNG"></img>
  **- Advisors Page:**
 <img src="AppScreenShots/AdvisorsPage.PNG"></img>
- **- Responsive Account Settings:**
-<img src="AppScreenShots/ResponsiveAccountSettings.PNG"></img>
- **- Responsive SignIn Page:**
-<img src="AppScreenShots/ResponsiveSignInView.png"></img>
-**- Responsive Contracts Page:**
-<img src="AppScreenShots/ResponsiveContractsView.png"></img>
+ **- Responsive Account Settings:**<br>
+<img src="AppScreenShots/ResponsiveAccountSettings.png"></img><br>
+ **- Responsive SignIn Page:**<br>
+<img src="AppScreenShots/ResponsiveSignInView.png"></img><br>
+**- Responsive Contracts Page:**<br>
+<img src="AppScreenShots/ResponsiveContractsView.png"></img><br>
