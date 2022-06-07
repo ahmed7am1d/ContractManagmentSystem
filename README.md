@@ -1,4 +1,4 @@
-![GitHub all releases](https://img.shields.io/github/downloads/ahmed7am1d/ContractManagmentSystem/total?logo=GitHub&style=flat-square)
+![GitHub all releases](https://img.shields.io/github/downloads/ahmed7am1d/ContractManagmentSystem/total?logo=GitHub&style=flat-square)<br> 
 Introduction
 ------
 Welcome to Contract Mangment System application, it is a full stack ASP.NET Core MVC (.NET6) application
