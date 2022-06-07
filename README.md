@@ -67,19 +67,21 @@ The system will allow you to do the following:
 
 Internal App ScreenShots:
 -----------
- **- Home Page:**
-<img src="Images/0.png"></img>
+ **- Splash Screen:**
+<img src="AppScreenShots/SplashScreen.PNG"></img>
  **- Login Page:**
-<img src="Images/1.PNG"></img>
- **- SignUp Page:**
-<img src="Images/2.PNG"></img>
- **- Cart Items:**
-<img src="Images/3.PNG"></img>
- **- Products Admin Managments:**
-<img src="Images/4.PNG"></img>
- **- Modifying Products Page:**
-<img src="Images/5.PNG"></img>
- **- Creating New Product Page:**
-<img src="Images/6.PNG"></img>
- **- Mobile View [Responsive Design]:**
-<img src="Images/7.png"></img>
+<img src="AppScreenShots/SignInPage.PNG"></img>
+ **- Account Settings Page:**
+<img src="AppScreenShots/AccountSettings.PNG"></img>
+ **- Contracts Page:**
+<img src="AppScreenShots/ContractPage.PNG"></img>
+ **- Clients Page:**
+<img src="AppScreenShots/ClientPage.PNG"></img>
+ **- Advisors Page:**
+<img src="AppScreenShots/AdvisorsPage.PNG"></img>
+ **- Responsive Account Settings:**
+<img src="AppScreenShots/ResponsiveAccountSettings.PNG"></img>
+ **- Responsive SignIn Page:**
+<img src="AppScreenShots/ResponsiveSignInView.png"></img>
+**- Responsive Contracts Page:**
+<img src="AppScreenShots/ResponsiveContractsView.png"></img>
