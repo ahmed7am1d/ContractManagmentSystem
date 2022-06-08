@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 Contract Managment System Full Stack ASP.NET MVC application.
 =======
 ![GitHub all releases](https://img.shields.io/github/downloads/ahmed7am1d/ContractManagmentSystem/total?logo=GitHub&style=flat-square)<br> 
