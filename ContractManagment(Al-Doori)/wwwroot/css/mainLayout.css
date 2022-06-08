@@ -33,6 +33,18 @@ body {
 
 
 
+@media (max-width:1200px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        
+    }
+    .bodyContent {
+        height:100vh;
+        display:flex;
+        justify-content:center;
+    }
+}
 
 /*#region SideBar */
 a {
@@ -45,8 +57,21 @@ a {
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
-    height: 100vh;
+    height:100vh;
     font-size: 1.6rem;
+    min-height:100%;
+}
+
+
+@media (max-width:1200px) {
+    .sideNavBar {
+        height:30vh;
+        overflow:hidden;
+        display:flex;
+        justify-content:center;
+        flex-direction:row;
+    }
+    
 }
 
 
@@ -213,9 +238,37 @@ a {
    /* display: flex;
     justify-content: center;
     align-content: center;*/
+   overflow-x:hidden;
+   overflow-y:initial
 }
 
 /*#endregion  */
 
 /*#endregion  */
 
+/*#region Scroll Bar Styling*/
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: var(--secondary-color);
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+
+    ::-webkit-scrollbar-thumb:window-inactive {
+        background: var(--secondary-color);
+    }
+
+/*#endregion */

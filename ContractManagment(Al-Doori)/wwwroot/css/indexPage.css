@@ -151,7 +151,12 @@
     align-items:center;
 }
 
-
+@media (max-width:524px) {
+    .filteringGroups {
+        display:flex;
+        flex-direction:column;
+    }
+}
 
 .filterSelectBox {
     padding: 10px;

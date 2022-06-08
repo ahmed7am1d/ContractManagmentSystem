@@ -28,7 +28,11 @@ namespace ContractManagment_Al_Doori_.Areas.Security.Controllers
 
         #region Login Action Methods
 
-
+        /// <summary>
+        /// Login Action Method that allows the user to login to website using loginViewModel
+        /// </summary>
+        /// <param name="loginViewModel"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel loginViewModel)
         {
@@ -39,7 +43,7 @@ namespace ContractManagment_Al_Doori_.Areas.Security.Controllers
                 {
                     return RedirectToAction("Contract","Home",new {area = String.Empty});
                 }
-                //else [Increase LoginFailed Attemp]
+                //else [LoginFailed]
                 loginViewModel.LoginFailed = true;
             }
             //[else wrong Inputted Data] => server side validation :)  
@@ -47,7 +51,10 @@ namespace ContractManagment_Al_Doori_.Areas.Security.Controllers
         }
 
 
-        //Return Normal View On Navigation
+        /// <summary>
+        /// Return Normal View On Navigation When Calling this method only if user not authenticated
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Login()
         {
             //We don't want the authenticated user be able to access the login end point because he already signedin
@@ -63,6 +70,11 @@ namespace ContractManagment_Al_Doori_.Areas.Security.Controllers
         #endregion
 
         #region Logout Action Method
+
+        /// <summary>
+        /// ActionResult Method to Logout from the current Session
+        /// </summary>
+        /// <returns></returns>
         public async Task<IActionResult> Logout()
         {
             await _securityApplicationService.Logout();
@@ -71,7 +83,10 @@ namespace ContractManagment_Al_Doori_.Areas.Security.Controllers
         #endregion
 
         #region AcountSettings Action Methods
-
+        /// <summary>
+        /// Method Returns View to set account settings only authorized people can access this view 
+        /// </summary>
+        /// <returns>View with the filled user data</returns>
         [Authorize(Roles = nameof(Roles.Admin))]
         public async Task<IActionResult> AccountSettings()
         {

@@ -1,4 +1,6 @@
-﻿.userAccountLogo {
+﻿/*#region Logo Wrapper*/
+
+.userAccountLogo {
     display: flex;
     justify-content: center;
     align-content: center;
@@ -26,11 +28,20 @@
     height:100%;
 }
 
-.InputGroupContainer {
-    box-sizing:border-box;
-    padding:0 10vw;
-    margin-top:100px;
+/*#endregion*/
+
+/*#region Input Groups and Submit button*/
+
+.AccountSettingsWrapper {
+        
 }
+
+.InputGroupContainer {
+    box-sizing: border-box;
+    padding: 0 10vw;
+    margin-top: 100px;
+}
+
 
 
 .InputGroup {
@@ -54,16 +65,37 @@
         border-radius: 5px;
         outline: none;
         caret-color: var(--secondary-color);
-        width:400px
+        width:300px;
+        overflow:hidden;
     }
 
+
+    @media (max-width:570px) {
+        .InputGroup {
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-content:center;
+            align-items:center;
+            overflow:hidden;
+        }
+
+            .InputGroup span {
+
+            }
+
+            .InputGroup input  {
+                
+            }
+    }
 
 .submitButtonContainer {
     display:flex;
     justify-content:center;
     align-content:center;
     align-items:center;
-    margin-top:80px;
+    margin-top:60px;
+    margin-bottom:30px;
 }
 
     .submitButtonContainer input {
@@ -79,16 +111,16 @@
         cursor:pointer;
         transition:0.5s;
 
+
     }
         .submitButtonContainer input:hover {
             opacity:0.7;
         }
 
 
+        /*#endregion*/
 
-
-
-
+/*#region Re-Used glas for responsive grid design*/
 
         .grid-3 {
             display: grid;
@@ -97,6 +129,8 @@
             grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
             grid-gap: 20px;
         }
+
+/*#endregion */
 
 .errorValidationSettings {
     font-family: 'Abril Fatface', cursive;

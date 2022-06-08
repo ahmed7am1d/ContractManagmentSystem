@@ -49,7 +49,10 @@ namespace ContractManagment_Al_Doori_.Models.Infrastructure.Database
             List<Contract> contracts = new List<Contract>()
             {
                 new Contract(1,234,"AEGON",1,"2021/03/04","2023/03/04","2022/03/04"),
-                new Contract(2,425,"CBOS",2,"2021/03/06","2023/03/06","2022/03/06")
+                new Contract(2,425,"CBOS",2,"2021/03/06","2023/03/06","2022/03/06"),
+                new Contract(3,321,"BLogic",4,"2021/04/06","2023/04/07","2022/04/06"),
+                new Contract(4,120,"AL-KAMALI",3,"2021/05/06","2023/05/07","2022/04/05"),
+            
             };
             return contracts;
         }
@@ -63,7 +66,11 @@ namespace ContractManagment_Al_Doori_.Models.Infrastructure.Database
             {
                     new AdvisorContract(){Id = 1,AdvisorID=1,ContractID=1,isAdminstrator= 1},
                     new AdvisorContract(){Id = 2,AdvisorID=2,ContractID=1, isAdminstrator = 0},
-                    new AdvisorContract(){Id = 3,AdvisorID=4,ContractID=2, isAdminstrator = 1}
+                    new AdvisorContract(){Id = 3,AdvisorID=4,ContractID=2, isAdminstrator = 1}, 
+                    new AdvisorContract(){Id = 4,AdvisorID = 3,ContractID = 3 , isAdminstrator=0 },
+                    new AdvisorContract(){Id = 5, AdvisorID = 1, ContractID = 4, isAdminstrator = 1},
+                    new AdvisorContract(){Id = 6, AdvisorID = 5, ContractID = 4, isAdminstrator = 1},
+                   
             };
         }
         #endregion

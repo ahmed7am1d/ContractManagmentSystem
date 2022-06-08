@@ -3,6 +3,8 @@
 @section Styles {
     <link rel="stylesheet" href="~/css/loginPage.css"/>
 }
+
+<div class="loginPageWrapper">
 <div class="LoginFormWrapper">
       <div class="leftSide">
         <img src="~/Images/undraw_agreement_re_d4dv.svg" />
@@ -13,27 +15,45 @@
 
         <form asp-action="Login" method="post">
 
+        <div>
+            <div class="InputGroup">
+                <span>User Name: </span>
+                <input type="text" placeholder="Enter Admin UserName.."  asp-for="@Model.Username"/>            
+            </div>
 
-          <div class="InputGroup">
-            <span>User Name: </span>
-            <input type="text" placeholder="Enter Admin UserName.."  asp-for="@Model.Username"/>
-          </div>
+            <div class="errorDivWrapper">
+                <span asp-validation-for=@Model.Username  class="errorValidationSettings"></span>
+            </div>
+        </div>
 
-          <div class="InputGroup">
-            <span>Passwords: </span>
-            <input type="password" placeholder="Enter Admin Password.." asp-for="@Model.Password"/>
-          </div>
+
+        <div>
+           <div class="InputGroup">
+               <span>Password: </span>
+               <input type="password" placeholder="Enter Password.."  asp-for="@Model.Password"/>            
+           </div>
+
+           <div class="errorDivWrapper">
+                <span asp-validation-for=@Model.Password  class="errorValidationSettings"></span>
+           </div>
+        </div>
 
           <div class="InputGroup">
             <input type="Submit" value="LOGIN" />
           </div>
-
+        
 
         </form>
 
+       @{
+            if (Model?.LoginFailed == true)
+            {
 
+                <div style="color:red; font-size:20px;" class="LoginFailed">Login Failed! Make Sure of your UserName and Passwords!</div>
+            }
+        }
       </div>
     </div>
-
+    </div>
 
 
