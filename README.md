@@ -11,7 +11,7 @@ App and Team Inforamtion:
 `Created By:` Ahmed Al-Doori.<br>
 `App For:` Blogic Company as Interview Task<br>
 `Front-End Techs:` HTML5, CSS3, JavaScript, RazorCode, Jquery, CSS Media Quries for Responsive Design, BodymovinLibary for Lottie Animation <br>
-`Back-End Techs:` ASP.NET Core, MS SQL Server<br>
+`Back-End Techs:` ASP.NET Core, MS SQL Server, ClosedXML Library for Exporting Sheets<br>
 
 What you will be able to do as Website owner:
 --------
