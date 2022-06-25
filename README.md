@@ -21,13 +21,16 @@ The system will allow you to do the following:
  - Login page 
  - Signout functionallity
  - Change admin settings [Name, PhoneNumber ...etc]
+ - Admin or Registered User can upload thier own profile picture 
  - Protected Routing
  - Browsering all the clients from your database 
  - Browsering all the advisors from your database 
  - Search for contracts by insituit name 
  - Search for clients by client name. Filtering clients by [Age, Name, Surname] 
  - Search for advisors by advisor name. Filtering clients by [Age, Name, Surname] 
- - [Future feature] Admin can (add, delete, create) (Contracts, Advisors, Clients)
+ - [Future feature] Admin can create a new contract
+ - Admin Can (Add, Remove) Advisors to/from an exsisting account 
+ - Admin Can Delete a contract
  - Export (Contracts, Advisors, Clients) as Excel Sheet or CSV
  
  App Internal Features:
