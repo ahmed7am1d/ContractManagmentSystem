@@ -42,6 +42,11 @@
             <th>Conclusion Date</th>
             <th>Validity Date</th>
             <th>Termination Date</th>
+            @{
+                if (User.Identity.IsAuthenticated == true && User.IsInRole("Admin")) {
+            <th>Actions</th>
+                }
+                }
             
           </tr>
         </thead>
@@ -68,9 +73,17 @@
             <th data-label="Preconditions">
               @Model.contracts[i].ValidityDate
             </th>
-
+            
             <th>@Model.contracts[i].TerminationDate </th>
+            @{
+                if (User.Identity.IsAuthenticated == true && User.IsInRole("Admin")) {
+            <th class="actionButtons">
 
+            <a asp-action="DeleteContract" asp-route-contractId="@Model.contracts[i].Id" onclick="return confirm('Delete The Selected Contract?')" >DELETE</a>
+            <a asp-area="Admin" asp-controller="Contract" asp-action="Edit" asp-route-id=@Model.contracts[i].Id >EDIT</a>
+            </th>
+                }
+            }
           </tr>
         </tbody>
       </table>

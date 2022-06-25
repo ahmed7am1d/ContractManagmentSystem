@@ -91,17 +91,21 @@ namespace ContractManagment_Al_Doori_.Areas.Security.Controllers
         public async Task<IActionResult> AccountSettings()
         {
             User currentUser = await _securityApplicationService.GetCurrentUser(User);
-            SettingsViewModel settings = new SettingsViewModel(currentUser.FirstName,currentUser.LastName,currentUser.PhoneNumber,currentUser.Email,currentUser.UserName);
+            SettingsViewModel settings = new SettingsViewModel(currentUser.FirstName,currentUser.LastName,currentUser.PhoneNumber,currentUser.Email,currentUser.UserName,currentUser.Photo);
             return View(settings);
         }
         #endregion
 
         #region Action Method to SaveNewSettings
         [Authorize(Roles = nameof(Roles.Admin))]
-        public async Task<IActionResult> SaveNewSettings(SettingsViewModel settingsViewModel)
+        public async Task<IActionResult> SaveNewSettings(SettingsViewModel settingsViewModel, IFormFile img)
         {
             //fake validation
+            //Problems Here        
+            
             ModelState["PhoneNumber"].ValidationState = Microsoft.AspNetCore.Mvc.ModelBinding.ModelValidationState.Valid;
+            ModelState["Photo"].ValidationState = Microsoft.AspNetCore.Mvc.ModelBinding.ModelValidationState.Valid;
+            
             if (ModelState.IsValid)
             {
                 var user = await _securityApplicationService.GetCurrentUser(User);
@@ -110,14 +114,29 @@ namespace ContractManagment_Al_Doori_.Areas.Security.Controllers
                 user.PhoneNumber = settingsViewModel.PhoneNumber;
                 user.Email = settingsViewModel.Email;
                 user.UserName = settingsViewModel.UserName;
-
+                
+                //For Photo 
+                user.Photo = GetByteArrayFromImage(img);
+                settingsViewModel.Photo = user.Photo;
+                
+    
                 await _securityApplicationService.UpdateUserData(user);
+                ModelState.Clear();
                 //Logout to update the claims 
                 await _securityApplicationService.Logout();
-                return RedirectToAction("AccountSettings",settingsViewModel);
             }
+            ModelState.Clear();
             return View("AccountSettings", settingsViewModel);
 
+        }
+        
+        private byte[] GetByteArrayFromImage(IFormFile file)
+        {
+            using (var target = new MemoryStream())
+            {
+                file.CopyTo(target);
+                return target.ToArray();
+            }
         }
         #endregion
 

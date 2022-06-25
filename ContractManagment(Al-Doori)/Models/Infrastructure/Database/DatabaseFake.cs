@@ -97,7 +97,9 @@ namespace ContractManagment_Al_Doori_.Models.Infrastructure.Database
                 Email = "admin@admin.cz",
                 EmailConfirmed = true,
                 FirstName = "ahmed",
-                LastName = "Taha"
+                LastName = "Taha",
+                Photo= new byte[] { }
+              
             };
             //[2] Password:
             string Password = "admin";

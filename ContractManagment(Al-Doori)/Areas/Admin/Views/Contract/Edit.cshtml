@@ -1,0 +1,10 @@
+﻿@model ContractViewModelEdit
+@section Styles {
+    <link rel="stylesheet" href="~/css/createEditPage.css"/>
+}
+
+<!--Specifying which action method should be called to return the specific view that will be send to the partial view -->
+@{
+    ViewBag.ActionMethd = "Edit";
+}
+<partial name="CreateEditForm" model=@Model/>

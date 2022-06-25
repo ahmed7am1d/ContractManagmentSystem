@@ -1,0 +1,399 @@
+﻿.createContainer {
+    display:grid;
+    grid-template-columns:30% 60%;
+    grid-template-rows:repeat(auto-fill,minmax(800px,1fr));
+    grid-template-areas:
+        "Image createFormWrapper"
+        "Image createFormWrapper"
+        "Image createFormWrapper"
+        ;
+   
+    width:100%;
+    margin:20px;
+   border-radius:20px;
+   overflow:hidden;
+}
+
+@media (max-width:820px) {
+    .createContainer {
+        grid-template-columns: 60% 30%;
+        grid-template-rows: repeat(auto-fill,minmax(400px,600px));
+        grid-template-areas:
+            "Image Image"
+            "createFormWrapper createFormWrapper"
+        "createFormWrapper createFormWrapper";
+    }
+    .createInputGroup span {
+        display:none;
+    }
+    .createInputGroup input {
+        width:100%;
+    }
+    .createInputGroup {
+        display: flex !important;
+        grid-template-columns:  1fr !important;
+        align-content:center !important;
+    }
+}
+
+/*#region Image Container*/
+
+/*[1] Image Container */
+.ImageContainer {
+    grid-area:Image;
+}
+.ImageContainer img {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+/*#endregion */
+
+
+/*#region Create Form Container*/
+
+/*[2] Create Form Wrapper*/
+.createFormWrapper {
+    grid-area: createFormWrapper;
+    padding:50px;
+    height:100%;
+    background-color:var(--primary-color);
+}
+
+    .createFormWrapper h1 {
+        text-align: start;
+        font-family: 'Abril Fatface', cursive;
+        font-family: 'Satisfy', cursive;
+        font-family: 'Staatliches', cursive;
+        font-family: 'Yanone Kaffeesatz', sans-serif;
+        letter-spacing:0.4rem;
+        position:relative;
+        width:fit-content;
+        }
+    .createFormWrapper h1:after {
+      content:"";
+      height:2px;
+      width:100%;
+      position:absolute;
+      top:100%;
+      left:0;
+      background-color:var(--secondary-color);
+    }
+.createFormWrapper h1:first-letter {
+    background-color:var(--secondary-color);
+    padding:5px;
+    padding-left:0.4rem;
+}
+
+.createContractForm {
+    display: flex;
+    flex-direction: column;
+   gap:20px;
+    align-items:center;
+    height:100%;
+}
+
+.createInputGroup {
+   display:grid;
+   grid-template-columns:40% 1fr;
+   width:100%;
+}
+    .createInputGroup input {
+        padding: 10px;
+        border-radius: 7px;
+        border: none;
+        outline: none;
+        border-bottom: 3px solid var(--secondary-color);
+        font-family: 'Abril Fatface', cursive;
+        font-family: 'Satisfy', cursive;
+        font-family: 'Staatliches', cursive;
+        font-family: 'Yanone Kaffeesatz', sans-serif;
+        font-size: 1.3rem;
+        width:100%;
+    }
+    .createInputGroup span {
+        padding: 10px;
+        font-family: 'Abril Fatface', cursive;
+        font-family: 'Satisfy', cursive;
+        font-family: 'Staatliches', cursive;
+        font-family: 'Yanone Kaffeesatz', sans-serif;
+        font-size:1.3rem;
+    }
+
+    .createInputGroup .clientSelectBox {
+        padding: 10px;
+        border-radius: 7px;
+        border: none;
+        outline: none;
+        border-bottom: 3px solid var(--secondary-color);
+        font-family: 'Abril Fatface', cursive;
+        font-family: 'Satisfy', cursive;
+        font-family: 'Staatliches', cursive;
+        font-family: 'Yanone Kaffeesatz', sans-serif;
+        font-size: 1.3rem;
+        width: 100%;
+    }
+    /*#endregion */
+
+/*#region Contract Advisor Edit,Create*/
+
+
+    .ContractAdvisor {
+        background-color: #eee;
+        border-radius: 10px;
+        width: 100%;
+        padding: 10px;
+    }
+
+.createContractForm h2 {
+    color: white;
+    text-align: center;
+    position: relative;
+    width: fit-content;
+}
+
+    .createContractForm h2:after {
+        position: absolute;
+        background-color: var(--secondary-color);
+        height: 2px;
+        width: 100%;
+        content: "";
+        top: 100%;
+        left: 0;
+    }
+
+.ContractAdvisor {
+    display:flex;
+    flex-direction:row;
+    width:100%;
+    justify-content:space-between;
+    align-content:center;
+    align-items:center;
+    padding:3px;
+    box-shadow:1px 7px 15px var(--secondary-color);
+}
+.deleteAdvisorButton {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    background-color: var(--primary-color);
+    border-radius: 20px;
+    padding: 20px;
+    height: 60px;
+    width: 130px;
+    text-align: center;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    transition:0.5s;
+    font-size:0.8rem;
+    
+}
+
+    .deleteAdvisorButton:hover {
+        background-color:darkred;
+        color:white;
+        opacity:1;
+    }
+
+
+    .AdvisorNameGroup {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+    }
+
+    .AdvisorNameGroup p {
+        color: var(--primary-color);
+        font-weight: bold;
+        font-family: 'Yanone Kaffeesatz', sans-serif;
+        letter-spacing:1px;
+    }
+.AdvisorNameGroup input {
+    height:50px;
+    margin-left:5px;
+    border:none;
+    outline:none;
+    border-radius:15px;
+    border-bottom:2px solid var(--secondary-color);
+}
+
+.AdvisorSelectGroup {
+    padding:20px;
+    display:flex;
+    justify-content:space-around;
+}
+    .AdvisorSelectGroup p {
+        color:var(--primary-color);
+        margin-right:5px;
+    }
+
+    .AdvisorSelectGroup .isAdmin {
+        padding: 10px;
+        font-weight:bold;
+        
+        align-self:center;
+        background-color:white;
+        color:var(--secondary-color);
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        border-bottom: 2px solid var(--secondary-color);
+
+    }
+
+
+.createContractForm input[type="submit"] {
+    padding: 15px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    color:white;
+    background-color: var(--secondary-color);
+    cursor:pointer;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight:bold;
+    transition:0.5s;
+}
+
+.createContractForm input[type="submit"]:hover {
+    opacity:0.7;
+    box-shadow:1px 2px 7px white inset;
+}
+
+.addAdvisorContainer {
+    display:flex;
+    justify-content: end;
+    align-items: flex-end;
+    align-content: flex-end;
+    width: 100%;
+}
+.addAdvisorContainer a {
+    color: white;
+    background-color: var(--secondary-color);
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-family:Arial, Helvetica, sans-serif;
+    transition: 0.4s;
+
+}
+.addAdvisorContainer a:hover {
+    opacity: 0.7;
+    box-shadow:1px 2px 7px white inset;
+}
+
+/*#endregion */
+
+
+/*Add Advisor Popout*/
+
+.popup {
+   position: fixed;
+   width: 100%;
+   height: 100%;
+   left: 0;
+   top: 0;
+   background:rgba(0,0,0,0.8) !important;
+   z-index: 9999;
+   display: none;
+}
+
+#addAdvisorPopup .popup-content{
+    width: 900px;
+    background-color: #eee;
+    height: 24%;
+    margin: 20% auto;
+    position: relative;
+    border-radius: 10px;
+    border: 3px solid var(--secondary-color);
+    box-shadow: 1px 2px 20px var(--secondary-color);
+    animation-name: popoutAnimation;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+
+}
+
+@keyframes popoutAnimation {
+    from {
+        opacity: 0.5;
+        transform: translateY(-300px);
+    }
+    to {
+        opacity: 1;
+    }
+    
+}
+
+#addAdvisorPopup .close {
+    background-color: red;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    left: 95%;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+.popup:target {
+    display: block;
+}
+
+.addAdvisorContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+}
+
+.addAdvisorContainer p {
+    color: var(--primary-color);
+    font-weight: bold;
+    
+}
+
+.addAdvisorContainer select {
+    padding: 15px;
+    border: 0;
+    border-radius: 10px;
+    border-bottom: 2px solid var(--secondary-color) !important;
+    outline: none;
+    width: 300px;
+    flex-wrap: wrap;
+}
+
+.addAdvisorButtonContainer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    align-content: flex-end;
+    padding: 10px;
+}
+
+.addAdvisorButtonContainer input {
+    background-color: var(--primary-color);
+    padding: 20px;
+    border-radius: 14px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    transition: 0.5s;
+    color:white !important;
+    outline:none;
+    border:none;
+}
+
+.addAdvisorButtonContainer input:hover {
+   opacity: 0.6;
+   box-shadow: 1px 2px 15px  var(--secondary-color);
+}

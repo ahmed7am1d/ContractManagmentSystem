@@ -1,135 +1,158 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@using ContractManagment_Al_Doori_.Models.ApplicationServices.Abstraction
+@inject ISecurityApplicationService _applicationService
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - ContractManagment_Al_Doori_</title>
-    @RenderSection("Styles",false)
-      <!--Css Styling-->
-     <link rel="stylesheet" href="~/css/mainLayout.css" asp-append-version="true" />
-     <!-- Font Awesome -->
-     <script src="https://use.fontawesome.com/df12e032f1.js"></script>
-     <!-- Font Family -->
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Satisfy&family=Staatliches&family=Yanone+Kaffeesatz:wght@300;400&display=swap" rel="stylesheet">
-     <!--Body Movin Library -->
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.9.4/lottie.min.js" integrity="sha512-ilxj730331yM7NbrJAICVJcRmPFErDqQhXJcn+PLbkXdE031JJbcK87Wt4VbAK+YY6/67L+N8p7KdzGoaRjsTg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>@ViewData["Title"] - ContractManagment_Al_Doori_</title>
+  @RenderSection("Styles",false)
+  <!--Css Styling-->
+  <link rel="stylesheet" href="~/css/mainLayout.css" asp-append-version="true" />
+  <!-- Font Awesome -->
+  <script src="https://use.fontawesome.com/df12e032f1.js"></script>
+  <!-- Font Family -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Satisfy&family=Staatliches&family=Yanone+Kaffeesatz:wght@300;400&display=swap"
+    rel="stylesheet">
+  <!--Body Movin Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.9.4/lottie.min.js"
+    integrity="sha512-ilxj730331yM7NbrJAICVJcRmPFErDqQhXJcn+PLbkXdE031JJbcK87Wt4VbAK+YY6/67L+N8p7KdzGoaRjsTg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 </head>
-   
+
 <body>
-     <div class="container">
-    <!--[1] NavBar-->
-      <aside class="sideNavBar">
-        <div class="profile">
-          <div class="imageIcon">
-            <img
-              src="~/Images/man.png"
-            />
-          </div>
-          <div class="name">
-                    @{
-                        if(String.IsNullOrEmpty(User.Identity.Name))
-                        {
-                            <p>Guest</p>
-                        } 
-                        else
-                        {
-                            <p>@User.Identity.Name</p>
-                        }                      
-                    }
-           @* <p class="nickName"></p>*@
-                    @{if (User.Identity.IsAuthenticated == true && (User.IsInRole(Roles.Admin.ToString())))
-                    {
-                            <p class="nickName" style="font-size:smaller">Role: Admin</p>
-                        }
-                        else
-                        {
-                            <p class="nickName" style="font-size:smaller">Role: Guest</p>
-                        }
-                    }
-                    
-          </div>
-        </div>
-        <ul class="navList">
-            
-            <!--Contracts Navigation-->
-            
-          <li class="navLink">
-            <i class="fa fa-building-o" aria-hidden="true"></i>
-            <span class="profileSpanWord">
-                <a asp-action="Contract" asp-area="" asp-controller="Home">Contracts</a>
-                </span>
-          </li>
+    @{
+        User currentUser = await _applicationService.GetCurrentUser(User);
+        string imgSrc = "";
+        if(currentUser != null && currentUser.Photo.Length > 1)
+        {
+             imgSrc = $"data:image/jpg;base64," + Convert.ToBase64String(currentUser.Photo);
+        }
+        else
+        {
+             imgSrc = "../../../Images/man.png";
+        }
+        
+    }
+<div class="container">
+  <!--[1] NavBar-->
+  <aside class="sideNavBar">
+    <div class="profile">
+      <div class="imageIcon">
+        <img src="@imgSrc"/>
+      </div>
+      <div class="name">
+        @{
+          if (String.IsNullOrEmpty(User.Identity.Name))
+          {
+            <p>Guest</p>
+          }
+          else
+          {
+            <p>@User.Identity.Name</p>
+          }
+        }
+        @* <p class="nickName"></p>*@
+        @{
+          if (User.Identity.IsAuthenticated == true && (User.IsInRole(Roles.Admin.ToString())))
+          {
+            <p class="nickName" style="font-size:smaller">Role: Admin</p>
+          }
+          else
+          {
+            <p class="nickName" style="font-size:smaller">Role: Guest</p>
+          }
+        }
 
-
-           <!--Clients Navigation-->
-            
-          <li class="navLink">
-            <i class="fa fa-user" aria-hidden="true"></i>
-            <span class="profileSpanWord">
-                <a asp-action="Client" asp-area="" asp-controller="Home">Clients</a>
-                </span>
-          </li>
-
-          <!--Advisors Navigation-->
-          <li class="navLink">
-            <i class="fa fa-user-secret" aria-hidden="true"></i>
-            <span class="profileSpanWord">
-                <a asp-action="Advisor" asp-area="" asp-controller="Home">Advisors</a>
-                </span>
-          </li>
-          
-            <!--SignIn Navigation-->
-             @if (!User.Identity.IsAuthenticated == true && !(User.IsInRole(Roles.Admin.ToString()))) {
-           <li class="navLink">
-            <i class="fa fa-sign-in" aria-hidden="true"></i>
-            <span class="profileSpanWord">
-                <a asp-area="Security" asp-action="Login" asp-controller="Account">Sign In</a>
-            </span>
-          </li>
-             }
-
-            <!-- Account Settings Navigation-->
-                @if (User.Identity.IsAuthenticated == true && (User.IsInRole(Roles.Admin.ToString())))
-                {
-                  
-                    <li class="navLink">
-                        <i class="fa fa-cog"></i>
-                        <span>
-                            <a asp-area="Security" asp-action="AccountSettings" asp-controller="Account">Account Settings</a>
-                        </span>
-                    </li>
-                }
-
-          <!--SignOut Action-->
-           @if (User.Identity.IsAuthenticated == true && (User.IsInRole(Roles.Admin.ToString()))) {
-          <li class="navLink">
-            <i class="fa fa-sign-out"></i>
-            <span>
-                <a asp-area="Security" asp-action="Logout" asp-controller="Account">Sign Out</a>
-            </span>
-          </li>
-           }
-
-        </ul>
-      </aside>
-
-
-    <!--[2] AutoRednered Component Container-->
-
-    <div class="bodyContent">
-        <main role="main" class="pb-3">
-            <h1 class="projectTitle">Contract Managment System</h1>
-            @RenderBody()
-        </main>
+      </div>
     </div>
+    <ul class="navList">
 
-    </div>
-    <!--if wanted add js script for all layout-->
-    
-    <script src="./lib/jquery/dist/jquery.js"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+      <!--Contracts Navigation-->
+
+      <li class="navLink">
+        <i class="fa fa-building-o" aria-hidden="true"></i>
+        <span class="profileSpanWord">
+          <a asp-action="Contract" asp-area="" asp-controller="Home">Contracts</a>
+        </span>
+      </li>
+
+
+      <!--Clients Navigation-->
+
+      <li class="navLink">
+        <i class="fa fa-user" aria-hidden="true"></i>
+        <span class="profileSpanWord">
+          <a asp-action="Client" asp-area="" asp-controller="Home">Clients</a>
+        </span>
+      </li>
+
+      <!--Advisors Navigation-->
+      <li class="navLink">
+        <i class="fa fa-user-secret" aria-hidden="true"></i>
+        <span class="profileSpanWord">
+          <a asp-action="Advisor" asp-area="" asp-controller="Home">Advisors</a>
+        </span>
+      </li>
+
+      <!--SignIn Navigation-->
+      @if (!User.Identity.IsAuthenticated == true && !(User.IsInRole(Roles.Admin.ToString())))
+      {
+        <li class="navLink">
+          <i class="fa fa-sign-in" aria-hidden="true"></i>
+          <span class="profileSpanWord">
+            <a asp-area="Security" asp-action="Login" asp-controller="Account">Sign In</a>
+          </span>
+        </li>
+      }
+
+      <!-- Account Settings Navigation-->
+      @if (User.Identity.IsAuthenticated == true && (User.IsInRole(Roles.Admin.ToString())))
+      {
+
+        <li class="navLink">
+          <i class="fa fa-cog"></i>
+          <span>
+            <a asp-area="Security" asp-action="AccountSettings" asp-controller="Account">Account Settings</a>
+          </span>
+        </li>
+      }
+
+      <!--SignOut Action-->
+      @if (User.Identity.IsAuthenticated == true && (User.IsInRole(Roles.Admin.ToString())))
+      {
+        <li class="navLink">
+          <i class="fa fa-sign-out"></i>
+          <span>
+            <a asp-area="Security" asp-action="Logout" asp-controller="Account">Sign Out</a>
+          </span>
+        </li>
+      }
+
+    </ul>
+  </aside>
+
+
+  <!--[2] AutoRednered Component Container-->
+
+  <div class="bodyContent">
+    <main role="main" class="pb-3">
+      <h1 class="projectTitle">Contract Managment System</h1>
+      @RenderBody()
+    </main>
+  </div>
+
+</div>
+<!--if wanted add js script for all layout-->
+
+<script src="./lib/jquery/dist/jquery.js"></script>
+@await RenderSectionAsync("Scripts", required: false)
 </body>
+
 </html>

@@ -1,0 +1,196 @@
+﻿@model ContractViewModelEdit
+@section Styles {
+<link rel="stylesheet" href="~/css/createEditPage.css" />
+}
+
+<!--Create Advsior Poput-->
+<div class="popup" id="addAdvisorPopup">
+
+    <form class="popup-content" method="post" asp-action="AddAdvisorToContract">
+        @{
+            if (!(Model.contract.ContractAdvisors.Count == 5))
+            {
+                <div class="addAdvisorContainer">
+                    <div>
+                        <div hidden="hidden">
+                            @Html.EditorForModel()
+                            @Html.EditorFor(model => model.contract)
+
+
+                        </div>
+                        <p>Advisor Name:</p>
+                        <select asp-for=@Model.AddAdvisorViewModel.AdvisorID>
+                            @{
+                                bool advisorExists = false;
+                                foreach (var advisor in Model.advisors)
+                                {
+                                    foreach (var contractAdvisor in Model.contract.ContractAdvisors)
+                                    {
+                                        if (contractAdvisor.Advisor == advisor)
+                                        {
+                                            advisorExists = true;
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            advisorExists = false;
+                                        }
+                                    }
+                                    if (!advisorExists)
+                                    {
+                                        <option value="@advisor.AdvisorId">@advisor.Name</option>
+                                    }
+                                }
+                            }
+                        </select>
+                    </div>
+
+                    <div>
+                        <p>Advisor is Admin</p>
+                        <select asp-for="@Model.AddAdvisorViewModel.AdvisorIsAdmin">
+                            <option value="1">Yes</option>
+                            <option value="0" selected>No</option>
+                        </select>
+                    </div>
+
+                </div>
+                <div class="addAdvisorButtonContainer">
+                    <input type="submit" value="Add Advisor"/>
+                </div>
+            }
+            else
+            {
+                <h1 style="text-align: center; color: darkred">All Advisors Are added to the contract !!!!</h1>
+                <a href="#" class="close">X</a>
+
+            }
+        }
+            </form>
+
+        </div>
+
+
+<div class="createContainer">
+    <!--[1] Image Side-->
+    <div class="ImageContainer">
+        @{
+            if (ViewBag.ActionMethod == "Create")
+            {
+                <img src="~/Images/createContract.jpg" />
+            }
+            else
+            {
+                <img src="~/Images/editContract.jpg" />
+            }
+        }
+    </div>
+
+
+    <!--[2] Form Side -->
+    <div class="createFormWrapper">
+        @{
+            if (ViewBag.ActionMethod == "Create")
+            {
+                <h1>Create New Contract</h1>
+            }
+            else
+            {
+                <h1>Modify Existing Contract</h1>
+            }
+        }
+
+        <form class="createContractForm" asp-action="EditContract" method="post">
+            <!--[1] Contract Registeration Number-->
+            <div class="createInputGroup">
+                <span>Contract Registeration Number: </span>
+                <input type="text" placeholder="Enter Contract Regiseration Number..."
+                    asp-for=@Model.contract.RegisterationNumber />
+            </div>
+
+            <!--[2] Contract Insitution -->
+
+            <div class="createInputGroup">
+                <span>Contract's Insitution Name: </span>
+                <input type="text" placeholder="Enter Contract Insitution Name..."
+                    asp-for=@Model.contract.Institution />
+            </div>
+            <!--[3] Contract's Client Name-->
+            <div class="createInputGroup">
+                <span>Contract's Client Name:</span>
+                @* <input type="text" placeholder="Enter Contract Client Name..."
+                    asp-for=@Model.contract.Client.Name/>*@
+                <select asp-for=@Model.contract.Client.Name class="clientSelectBox">
+                    @{
+                        foreach (var client in Model.clients)
+                        {
+                            <option value=@client>@client.Name</option>
+                        }
+                    }
+
+                </select>
+            </div>
+
+            <!--[4] Contract's ConclusionDate-->
+            <div class="createInputGroup">
+                <span>Contract's Conclusion Date:</span>
+                <input type="text" placeholder="Enter Contract Conclusion Date..."
+                    asp-for=@Model.contract.ConclusionDate />
+            </div>
+
+            <!--[5] Contract's ValidityDate-->
+            <div class="createInputGroup">
+                <span>Contract's Validity Date:</span>
+                <input type="text" placeholder="Enter Contract Validity Date..." asp-for=@Model.contract.ValidityDate />
+            </div>
+
+            <!--[6] Contract's Terminiation Date-->
+            <div class="createInputGroup">
+                <span>Contract's Terminiation Date:</span>
+                <input type="text" placeholder="Enter Contract Terminitation Date..."
+                    asp-for=@Model.contract.TerminationDate />
+            </div>
+
+            <!--[7] Contract Advisors -->
+            <!--For Each Advisor we will generate inputs field contains [Advisor Name, Advisor is Admin (two choices only 1,2) -->
+            <h2>Advisors</h2>
+            <div class="addAdvisorContainer">
+                <a href="#addAdvisorPopup" class="addAdvisorButton">Add New Advisor</a>
+            </div>
+            @{
+                for (int i = 0; i < Model.contract.ContractAdvisors.Count; i++)
+                {
+
+                    <div class="ContractAdvisor">
+
+                        <div class="AdvisorNameGroup">
+                            <input type="text" value=@Model.contract.ContractAdvisors[i].Advisor.Name readonly />
+                        </div>
+
+                        <div class="AdvisorSelectGroup">
+                            <p>Is Admin: </p>
+                            <div class="isAdmin">
+                                @{
+                                    var isAdmin = Model.contract.ContractAdvisors[i].isAdminstrator == 1 ? "Yes" : "No";
+                                } @isAdmin
+                            </div>
+                        </div>
+
+
+                        <div class="deleteAdvisorButton">
+                            @{
+                                var ContractId = Model.contract.Id;
+                                var advisorName = Model.contract.ContractAdvisors[i].Advisor.Name;
+                                var contractIDNAdvisorName = ContractId + ";" + advisorName;
+                            }
+                            <a asp-action="deleteAdvisorFromContract"
+                        asp-route-advisorNameNContractID=@contractIDNAdvisorName>Remove Advisor</a>
+                        </div>
+                    </div>
+                }
+            }
+            <input type="submit" value="SAVE NEW DETAILS" />
+        </form>
+
+
+    </div>
+</div>

@@ -1,3 +1,4 @@
+using System.Security.Policy;
 using ContractManagment_Al_Doori_.Models.Entities.Identity;
 using ContractManagment_Al_Doori_.Models.Infrastructure.Database;
 using Microsoft.AspNetCore.Identity;
@@ -119,8 +120,6 @@ app.UseAuthorization();
 
 #region Map Controllers and Routing
 
-
-
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllerRoute(
@@ -132,6 +131,7 @@ app.UseEndpoints(endpoints =>
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=SplashScreen}/{id?}");
+
 
 #endregion
 app.Run();

@@ -8,6 +8,8 @@ using ClosedXML;
 using Microsoft.EntityFrameworkCore;
 using System.Data;
 using ClosedXML.Excel;
+using Microsoft.AspNetCore.Authorization;
+using ContractManagment_Al_Doori_.Models.Entities.Identity;
 
 namespace ContractManagment_Al_Doori_.Controllers
 {
@@ -69,6 +71,24 @@ namespace ContractManagment_Al_Doori_.Controllers
 
         }
 
+        #endregion
+
+        #region Contract Delete Action Method 
+        [Authorize(Roles = nameof(Roles.Admin))]
+        public async Task<IActionResult> DeleteContract(int contractId)
+        {
+            if (!String.IsNullOrEmpty(contractId.ToString()))
+            {
+                //[1] Delete Contract From the Database 
+                await DBservices.DeleteContract(contractId);
+
+                //[2] Return to the contracts Page  
+                return RedirectToAction(nameof(Contract));
+
+            }
+            return RedirectToAction(nameof(Contract));
+
+        }
         #endregion
 
         #region Client Action Methods 
@@ -163,7 +183,7 @@ namespace ContractManagment_Al_Doori_.Controllers
         {
             //Cancel Validation for Search Field, because we want to filter only
             ModelState["AdvisorSearchName"].Errors.Clear();
-           
+
             advisorViewModel.advisors = await DBservices.getFilteredAdvisors(advisorViewModel.filterByChoice);
             return View("Advisor", advisorViewModel);
         }
@@ -192,7 +212,7 @@ namespace ContractManagment_Al_Doori_.Controllers
         /// </summary>
         /// <returns></returns>
         public async Task<IActionResult> ExportClientsToExcel()
-        {   
+        {
             return await DBservices.ExportClientsToExcel();
         }
         #endregion

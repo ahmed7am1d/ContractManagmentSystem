@@ -29,6 +29,32 @@ namespace ContractManagment_Al_Doori_.Models.Infrastructure.Database
         }
         #endregion
 
+        #region Method to Delete Contract and it is related Data From the Database 
+        public async Task DeleteContract(int contractID)
+        {
+            if (!String.IsNullOrEmpty(contractID.ToString()))
+            {
+                //Getting the Data for (Contract, AdvisorContract) 
+                var ContractToDelete = _contractDbContext.Contracts.FirstOrDefault(x => x.Id == contractID);
+                var ContractToDeleteAdvisors = _contractDbContext.AdvisorContracts.Where(x => x.ContractID == contractID);
+
+                if (ContractToDelete != null)
+                {
+                    //[1] Remove AdvisorContract 
+                    foreach (var ContractToDeleteAdvisor in ContractToDeleteAdvisors)
+                    {
+                        _contractDbContext.AdvisorContracts.Remove(ContractToDeleteAdvisor);
+                    }
+                    //[2] Remove Contract
+                    _contractDbContext.Contracts.Remove(ContractToDelete);
+
+                    //[3] Save Changes to the DbSets 
+                    _contractDbContext.SaveChanges();
+                }
+            }
+        }
+        #endregion
+
         #region Method To Return Client that's contains search name 
         public async Task<IList<Client>> getSpecficClient(string clientSearchName)
         {

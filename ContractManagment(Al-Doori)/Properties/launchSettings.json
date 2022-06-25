@@ -8,6 +8,7 @@
     }
   },
   "profiles": {
+    
     "ContractManagment_Al_Doori_": {
       "commandName": "Project",
       "dotnetRunMessages": true,
