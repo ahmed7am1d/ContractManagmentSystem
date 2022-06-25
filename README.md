@@ -79,7 +79,11 @@ Internal App ScreenShots:
  **- Account Settings Page:**
 <img src="AppScreenShots/AccountSettings.PNG"></img>
  **- Contracts Page:**
-<img src="AppScreenShots/ContractPage.PNG"></img>
+<img src="AppScreenShots/ContractsPage.PNG"></img>
+ **- Edit Contract Page:**
+<img src="AppScreenShots/ModifyContract.PNG"></img>
+ **- Add Advisor :**
+<img src="AppScreenShots/Add-Advisor.PNG"></img>
  **- Clients Page:**
 <img src="AppScreenShots/ClientPage.PNG"></img>
  **- Advisors Page:**
